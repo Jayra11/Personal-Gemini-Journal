@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --primary: #293331;
+  --primary-foreground: #fffaf3;
+  --radius: 0.8rem;
+  --background: #f5f4ef;
+  --foreground: #293331;
+  --card: #fffdf9;
+  --card-foreground: #293331;
+  --popover: #fffdf9;
+  --popover-foreground: #293331;
+  --secondary: #eeeae2;
+  --secondary-foreground: #59635e;
+  --muted: #eeece5;
+  --muted-foreground: #78817d;
+  --accent: #e6eee2;
+  --accent-foreground: #405246;
+  --destructive: #a65e51;
+  --destructive-foreground: #fffaf3;
+  --border: rgba(41, 51, 49, .11);
+  --input: rgba(41, 51, 49, .16);
+  --ring: #b67c59;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { @apply bg-background text-foreground; margin: 0; min-width: 320px; }
+button, textarea { font: inherit; }
+button:active { transform: scale(.98); }
+
+.font-display { font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif; }
+body, .font-body { font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; }
+.eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #9c6d4b; }
+.nav-item { display: flex; width: 100%; align-items: center; gap: .7rem; border-radius: .75rem; padding: .7rem .75rem; text-align: left; font-size: .78rem; color: #78817d; transition: background-color 180ms ease, color 180ms ease, transform 180ms ease; }
+.nav-item:hover { background: rgba(255,255,255,.5); color: #293331; }
+.nav-item-active { background: rgba(255,255,255,.72); color: #293331; font-weight: 700; box-shadow: 0 4px 18px rgba(41,51,49,.04); }
+::selection { background: #f1c89d; color: #293331; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav-item, button, [class*="transition"] { transition-timing-function: cubic-bezier(.23,1,.32,1); }
+}
